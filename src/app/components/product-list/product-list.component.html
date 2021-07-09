@@ -1,0 +1,5 @@
+<h3>Product List</h3>
+<div class="product-list">
+   <app-spinner *ngIf="loading"></app-spinner>
+   <app-list-item *ngFor="let product of products" [product]="product"></app-list-item>
+</div>

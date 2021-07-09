@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/interfaces/Product';
+import { Store } from '@ngrx/store';
+import { CartProduct } from 'src/app/interfaces/CartProduct';
+import { DECREASE_COUNT, INCREASE_COUNT } from './../../actions/cart.actions';
 
 @Component({
   selector: 'app-cart-item',
@@ -7,9 +9,17 @@ import { Product } from 'src/app/interfaces/Product';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent implements OnInit {
-  @Input() product: any;
+  @Input() product: CartProduct | any;
 
-  constructor() {}
+  constructor(private store: Store<{ store: CartProduct[] }>) {}
 
   ngOnInit(): void {}
+
+  increaseCount(product: CartProduct): void {
+    this.store.dispatch(INCREASE_COUNT(product));
+  }
+
+  decreaseCount(product: CartProduct): void {
+    this.store.dispatch(DECREASE_COUNT(product));
+  }
 }

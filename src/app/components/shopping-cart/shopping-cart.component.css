@@ -1,8 +1,6 @@
 .shopping-cart {
   min-height: 85vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 10px;
-  color: cadetblue;
+  grid-gap: 20px;
   margin: 20px 0;
 }

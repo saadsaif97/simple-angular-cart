@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/interfaces/Product';
 import { ProductsService } from 'src/app/services/products.service';
@@ -22,4 +22,6 @@ export class ProductPageComponent implements OnInit {
     this.product = await this.service.getProductById(this.id);
     this.loading = false;
   }
+
+  onClick(product: Product): void {}
 }

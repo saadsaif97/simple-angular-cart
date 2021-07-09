@@ -1,4 +1,8 @@
+<div class="d-flex justify-content-between">
+   <h3>Shopping Cart</h3>
+   <button class="btn btn-success" *ngIf="cartProducts.length > 0" (click)="checkout()">Checkout</button>
+</div>
 <div class="shopping-cart">
-   <app-spinner *ngIf="loading"></app-spinner>
-   <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
+   <h3 *ngIf="cartProducts.length == 0" class="text-center mt-3">Cart is empty...</h3>
+   <app-cart-item *ngFor="let product of cartProducts" [product]="product"></app-cart-item>
 </div>

@@ -1,6 +1,15 @@
 <header class="pb-3 mb-4 border-bottom">
-   <div class="d-flex flex-column align-items-center" routerLink="/catalog" style="cursor: pointer;">
-      <i class="fas fa-store fa-3x mb-2"></i>
-      <h3 class="fs-4 mb-0" style="font-weight: 800;">SIMPLE STORE</h3>
+   <div class="d-flex align-items-center" style="cursor: pointer;">
+      <div class="d-flex align-items-center" routerLink="/product-list">
+         <i class="fas fa-store fa-2x me-2"></i>
+         <h5 class="fs-4 mb-0" style="font-weight: 800;">SIMPLE STORE</h5>
+      </div>
+      <p class="ms-auto mb-0 me-4" routerLink="/product-list">Products</p>
+      <div class="position-relative" routerLink="/cart">
+         <i class="fas fa-shopping-cart"></i>
+         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{ cartProducts.length }}
+         </span>
+      </div>
    </div>
 </header>
