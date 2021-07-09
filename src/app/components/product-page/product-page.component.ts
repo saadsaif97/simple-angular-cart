@@ -1,7 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { CartProduct } from 'src/app/interfaces/CartProduct';
 import { Product } from 'src/app/interfaces/Product';
 import { ProductsService } from 'src/app/services/products.service';
+import { ADD_PRODUCT } from 'src/app/actions/cart.actions';
 
 @Component({
   selector: 'app-product-page',
@@ -13,7 +16,11 @@ export class ProductPageComponent implements OnInit {
   product: Product | any;
   loading: boolean = false;
 
-  constructor(private route: ActivatedRoute, private service: ProductsService) {
+  constructor(
+    private route: ActivatedRoute,
+    private service: ProductsService,
+    private store: Store<{ store: CartProduct[] }>
+  ) {
     this.id = this.route.snapshot.params.id;
   }
 
@@ -23,5 +30,7 @@ export class ProductPageComponent implements OnInit {
     this.loading = false;
   }
 
-  onClick(product: Product): void {}
+  onClick(product: Product): void {
+    this.store.dispatch(ADD_PRODUCT(product));
+  }
 }
