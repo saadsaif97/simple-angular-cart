@@ -34,4 +34,4 @@ jobs:
       - name: Build command
         run: npm run build
       - name: Deploy to surge
-        run: surge ./dist/ShoppingCart saad-saif-shopping-cart.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./dist/ShoppingCart saad-saif-shopping-cart-angular.surge.sh --token ${{ secrets.SURGE_TOKEN }}
