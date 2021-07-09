@@ -1,0 +1,22 @@
+.card {
+  height: 100%;
+}
+
+.img-container {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 20px;
+  flex-grow: 1000;
+  cursor: pointer;
+}
+
+.img-container img {
+  width: 80%;
+  height: auto;
+  transition: all 0.2s ease-in-out;
+}
+
+.img-container img:hover {
+  transform: scale(1.1);
+}

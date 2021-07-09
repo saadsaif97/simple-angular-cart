@@ -1,0 +1,4 @@
+<div class="shopping-cart">
+   <app-spinner *ngIf="loading"></app-spinner>
+   <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
+</div>

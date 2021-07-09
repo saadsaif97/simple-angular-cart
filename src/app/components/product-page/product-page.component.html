@@ -1,0 +1,21 @@
+<div class="product-page">
+   <app-spinner *ngIf="loading"></app-spinner>
+   <div *ngIf="!loading">
+      <div class="image-and-desc">
+         <div class="img-container">
+            <img class="card-img" src='{{ product.image }}' alt="{{ product.title }}">
+         </div>
+         <div class="desc">
+            <div>
+               <h1>{{ product.title }}</h1>
+               <h6>Category: {{ product.category }}</h6>
+               <p class="card-text">{{ product.description }}</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+               <h5 class="mt-4">${{ product.price }}</h5>
+               <a href="#" class="btn btn-success btn-sm mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
