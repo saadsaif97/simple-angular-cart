@@ -5,6 +5,19 @@ import { CartProduct } from 'src/app/interfaces/CartProduct';
 import { Product } from 'src/app/interfaces/Product';
 import { ProductsService } from 'src/app/services/products.service';
 import { ADD_PRODUCT } from 'src/app/actions/cart.actions';
+import Swal from 'sweetalert2';
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer);
+    toast.addEventListener('mouseleave', Swal.resumeTimer);
+  },
+});
 
 @Component({
   selector: 'app-product-page',
@@ -32,5 +45,9 @@ export class ProductPageComponent implements OnInit {
 
   onClick(product: Product): void {
     this.store.dispatch(ADD_PRODUCT(product));
+    Toast.fire({
+      icon: 'success',
+      title: 'Product added to cart',
+    });
   }
 }

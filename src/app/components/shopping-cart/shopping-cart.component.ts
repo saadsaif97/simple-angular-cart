@@ -3,7 +3,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CLEAR_CART } from 'src/app/actions/cart.actions';
 import { CartProduct } from 'src/app/interfaces/CartProduct';
-import sweetalert from '../../../../package/sweetalert';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -22,7 +23,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   checkout(): void {
-    sweetalert({
+    Swal.fire({
       title: 'Checkout Successful!',
       text: `Your Payed $${this.totalAmount()} for this dummy checkout!`,
       icon: 'success',
