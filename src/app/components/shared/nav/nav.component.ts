@@ -19,7 +19,6 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.cart$.subscribe((cartProducts) => {
       this.cartProducts = cartProducts;
-      console.log(cartProducts);
     });
   }
 }
